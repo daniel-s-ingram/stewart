@@ -1,6 +1,8 @@
 <launch>
+  <env name="GAZEBO_PLUGIN_PATH" value="${GAZEBO_PLUGIN_PATH}:$(find stewart)/plugin/build" />
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find stewart)/model/sdf" />
 
-  <arg name = "paused" default = "true"/>
+  <arg name = "paused" default = "false"/>
   <arg name = "use_sim_time" default = "true"/>
   <arg name = "gui" default = "true"/>
   <arg name = "headless" default = "false"/>
