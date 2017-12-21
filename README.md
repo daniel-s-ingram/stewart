@@ -21,12 +21,10 @@ cd build
 cmake ../  
 make  
 
-
-To set the gazebo_plugin_path variable, do the following:
-
-
-echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/your_catkin_ws_src_path/stewart/plugin/build" >> ~/.bashrc  
-source ~/.bashrc  
+Now, to launch the package:
 
 
-I plan to make the last step part of package.xml so it doesn't have to be done manually.
+roslaunch stewart stewart.launch
+
+
+Note: The package currently expects a Dualshock 3 or 4 controller to be connected via USB.
