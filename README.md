@@ -16,13 +16,9 @@ To build the plugin:
 
 
 cd plugin
-
 mkdir build
-
 cd build
-
 cmake ../
-
 make
 
 
@@ -30,7 +26,6 @@ To set the gazebo_plugin_path variable, do the following:
 
 
 echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/your_catkin_ws_src_path/stewart/plugin/build" >> ~/.bashrc
-
 source ~/.bashrc
 
 
