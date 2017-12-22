@@ -27,7 +27,9 @@ Now, to launch the package:
 roslaunch stewart stewart.launch
 
 
+
+
 Note: The package currently expects a Dualshock 3 or 4 controller to be connected via USB.
 
 The left analog stick translates in x and y. R2 increases z and L2 decreases z.
-The right analog stick rotates around the x and y axes (roll and pitch). R1 and L1 should increase and decrease yaw, respectively, but this isn't yet working for some reason.
+The right analog stick rotates around the x and y axes (roll and pitch). R1 and L1 should increase and decrease yaw, respectively, but this isn't yet working for some reason.x
