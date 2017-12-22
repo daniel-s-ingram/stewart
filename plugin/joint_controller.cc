@@ -41,7 +41,7 @@ namespace gazebo
       }
 
       this->model = _model;
-      this->pid = common::PID(10.0, 1.0, 0.5);
+      this->pid = common::PID(1000.0, 0.1, 100.0);
       for(i = 0; i < 6; i++)
       {
         this->piston[i] = _model->GetJoints()[i];
