@@ -54,7 +54,7 @@ length_components = [0, 0, 0]
 
 while not rospy.is_shutdown():
 	for i in xrange(n_pistons):
-		length_components = np.array([x, y, z-height]) + np.dot(rotation_matrix(roll, pitch, yaw), p[i]) - b[i]
+		length_components = np.array([x, y, z+height]) + np.dot(rotation_matrix(roll, pitch, yaw), p[i]) - b[i]
 		piston_lengths.data[i] = np.sqrt(length_components[0]**2 + length_components[1]**2 + length_components[2]**2)-1.93
 
 	piston_pub.publish(piston_lengths)
