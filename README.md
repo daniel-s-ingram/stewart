@@ -8,8 +8,9 @@ Clone this repo to your catkin workspace src directory and build it:
 
 ```
 cd ~/your_catkin_ws_src_path/  
-git clone https://github.com/daniel-s-ingram/stewart_ros.git  
-catkin build  
+git clone https://github.com/daniel-s-ingram/stewart.git  
+catkin build stewart
+source ~/your_catkin_ws/devel/setup.bash
 ```
 
 To build the plugin:
