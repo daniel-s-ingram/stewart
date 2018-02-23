@@ -6,26 +6,27 @@ https://drive.google.com/file/d/19_pbGBhv_6Z4hBBUDaK23lttlcqpRheH/view?usp=shari
 
 Clone this repo to your catkin workspace src directory and build it:
 
-
+'''
 cd ~/your_catkin_ws_src_path/  
 git clone https://github.com/daniel-s-ingram/stewart_ros.git  
 catkin build  
-
+'''
 
 To build the plugin:
 
-
+'''
 cd plugin  
 mkdir build  
 cd build  
 cmake ../  
 make  
+'''
 
 Now, to launch the package:
 
-
+'''
 roslaunch stewart stewart.launch
-
+'''
 
 
 
