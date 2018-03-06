@@ -23,6 +23,13 @@ cmake ../
 make  
 ```
 
+Create the SDF file from the ERB template:
+
+```
+cd ../../sdf/stewart/
+erb model.sdf.erb > model.sdf
+```
+
 Now, to launch the package:
 
 ```
