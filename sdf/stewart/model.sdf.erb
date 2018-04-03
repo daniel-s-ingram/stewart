@@ -195,7 +195,7 @@
 		</axis>
 	</joint>
 
-	<joint name = "top_ball1_joint" type = "revolute" >
+	<joint name = "top_ball1_joint" type = "revolute2" >
 		<parent> platform_link </parent>
 		<child> top_ball1_link </child>
 		<pose> 0 0 0 0 0 0 </pose>
@@ -207,9 +207,17 @@
 				<velocity> 0.1 </velocity>
 			</limit>
 		</axis>
+		<axis2> 
+			<xyz> 0 0 1 </xyz>
+			<limit>
+				<lower> -0.786 </lower>
+				<upper> 0.786 </upper>
+				<velocity> 0.1 </velocity>
+			</limit>
+		</axis2>
 	</joint>
 
-	<joint name = "top_ball2_joint" type = "revolute" >
+	<joint name = "top_ball2_joint" type = "revolute2" >
 		<parent> platform_link </parent>
 		<child> top_ball2_link </child>
 		<pose> 0 0 0 0 0 0 </pose>
@@ -221,9 +229,17 @@
 				<velocity> 0.1 </velocity>
 			</limit>
 		</axis>
+		<axis2> 
+			<xyz> 0 0 1 </xyz>
+			<limit>
+				<lower> -0.786 </lower>
+				<upper> 0.786 </upper>
+				<velocity> 0.1 </velocity>
+			</limit>
+		</axis2>
 	</joint>
 
-	<joint name = "top_ball3_joint" type = "revolute" >
+	<joint name = "top_ball3_joint" type = "revolute2" >
 		<parent> platform_link </parent>
 		<child> top_ball3_link </child>
 		<pose> 0 0 0 0 0 0 </pose>
@@ -235,9 +251,17 @@
 				<velocity> 0.1 </velocity>
 			</limit>
 		</axis>
+		<axis2> 
+			<xyz> 0 0 1 </xyz>
+			<limit>
+				<lower> -0.786 </lower>
+				<upper> 0.786 </upper>
+				<velocity> 0.1 </velocity>
+			</limit>
+		</axis2>
 	</joint>
 
-	<joint name = "top_ball4_joint" type = "revolute" >
+	<joint name = "top_ball4_joint" type = "revolute2" >
 		<parent> platform_link </parent>
 		<child> top_ball4_link </child>
 		<pose> 0 0 0 0 0 0 </pose>
@@ -249,9 +273,17 @@
 				<velocity> 0.1 </velocity>
 			</limit>
 		</axis>
+		<axis2> 
+			<xyz> 0 0 1 </xyz>
+			<limit>
+				<lower> -0.786 </lower>
+				<upper> 0.786 </upper>
+				<velocity> 0.1 </velocity>
+			</limit>
+		</axis2>
 	</joint>
 
-	<joint name = "top_ball5_joint" type = "revolute" >
+	<joint name = "top_ball5_joint" type = "revolute2" >
 		<parent> platform_link </parent>
 		<child> top_ball5_link </child>
 		<pose> 0 0 0 0 0 0 </pose>
@@ -263,9 +295,17 @@
 				<velocity> 0.1 </velocity>
 			</limit>
 		</axis>
+		<axis2> 
+			<xyz> 0 0 1 </xyz>
+			<limit>
+				<lower> -0.786 </lower>
+				<upper> 0.786 </upper>
+				<velocity> 0.1 </velocity>
+			</limit>
+		</axis2>
 	</joint>
 
-	<joint name = "top_ball6_joint" type = "revolute" >
+	<joint name = "top_ball6_joint" type = "revolute2" >
 		<parent> platform_link </parent>
 		<child> top_ball6_link </child>
 		<pose> 0 0 0 0 0 0 </pose>
@@ -276,7 +316,15 @@
 				<upper> 0.786 </upper>
 				<velocity> 0.1 </velocity>
 			</limit>
-		</axis>	
+		</axis>
+		<axis2> 
+			<xyz> 0 0 1 </xyz>
+			<limit>
+				<lower> -0.786 </lower>
+				<upper> 0.786 </upper>
+				<velocity> 0.1 </velocity>
+			</limit>
+		</axis2>
 	</joint>
 
 	<joint name = "piston1_bottom_pitch_joint" type = "revolute" >
