@@ -28,10 +28,14 @@ def twist_callback(twist_msg):
     x = twist_msg.linear.x
     y = twist_msg.linear.y
     z = twist_msg.linear.z
-
     roll = twist_msg.angular.x
     pitch = twist_msg.angular.y
     yaw = twist_msg.angular.z
+    for i in range(n_pistons):
+        length_components = np.array([x, y, z + height]) + np.dot(rotation_matrix(roll, pitch, yaw), p[i]) - b[i]
+        piston_lengths.data[i] = np.sqrt(length_components[0]**2 + length_components[1]**2 + length_components[2]**2)-1.93
+
+    piston_pub.publish(piston_lengths)
 
 def rotation_matrix(rho, theta, psi):
     return np.array([[cos(psi)*cos(theta), -sin(psi)*cos(rho)+cos(psi)*sin(theta)*sin(rho), sin(psi)*sin(rho)+cos(psi)*sin(theta)*cos(rho)],
@@ -39,18 +43,10 @@ def rotation_matrix(rho, theta, psi):
                      [-sin(theta), cos(theta)*sin(rho), cos(theta)*cos(psi)]])
 
 rospy.init_node('inverse_kinematics', anonymous=True)
-
 twist_sub = rospy.Subscriber('/stewart/platform_twist', Twist, twist_callback)
-piston_pub = rospy.Publisher('/stewart/piston_cmd', Float32MultiArray, queue_size=20)
-
+piston_pub = rospy.Publisher('/stewart/piston_cmd', Float32MultiArray, queue_size=10)
 piston_lengths = Float32MultiArray()
 piston_lengths.data = [0, 0, 0, 0, 0, 0]
 n_pistons = len(piston_lengths.data)
 length_components = [0, 0, 0]
-
-while not rospy.is_shutdown():
-    for i in xrange(n_pistons):
-        length_components = np.array([x, y, z+height]) + np.dot(rotation_matrix(roll, pitch, yaw), p[i]) - b[i]
-        piston_lengths.data[i] = np.sqrt(length_components[0]**2 + length_components[1]**2 + length_components[2]**2)-1.93
-
-    piston_pub.publish(piston_lengths)
+rospy.spin()
