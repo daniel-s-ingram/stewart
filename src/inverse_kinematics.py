@@ -5,9 +5,7 @@ from numpy import cos, sin
 from std_msgs.msg import Float32MultiArray
 from geometry_msgs.msg import Twist
 
-x = y = z = 0.0
-roll = pitch = yaw = 0.0
-height = 2.0 #Height of platform above base when legs are completely unextended
+h = 2.0 #Height of platform above base when legs are completely unextended
 
 b = np.array([[-0.101, 0.8, 0.25],
               [0.101, 0.8, 0.25],
@@ -24,7 +22,6 @@ p = np.array([[-0.642, 0.487, -0.05],
               [-0.743, 0.313, -0.05]])
 
 def twist_callback(twist_msg):
-    global x, y, z, roll, pitch, yaw
     x = twist_msg.linear.x
     y = twist_msg.linear.y
     z = twist_msg.linear.z
@@ -32,8 +29,8 @@ def twist_callback(twist_msg):
     pitch = twist_msg.angular.y
     yaw = twist_msg.angular.z
     for i in range(n_pistons):
-        length_components = np.array([x, y, z + height]) + np.dot(rotation_matrix(roll, pitch, yaw), p[i]) - b[i]
-        piston_lengths.data[i] = np.sqrt(length_components[0]**2 + length_components[1]**2 + length_components[2]**2)-1.93
+        l = np.array([x, y, z + h]) + np.dot(rotation_matrix(roll, pitch, yaw), p[i]) - b[i]
+        piston_lengths.data[i] = np.sqrt(l[0]**2 + l[1]**2 + l[2]**2)-h
 
     piston_pub.publish(piston_lengths)
 
