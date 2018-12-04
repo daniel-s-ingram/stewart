@@ -39,7 +39,7 @@ def rotation_matrix(rho, theta, psi):
                      [sin(psi)*cos(theta), cos(psi)*cos(rho)+sin(psi)*sin(theta)*sin(rho), -cos(psi)*sin(rho)+sin(psi)*sin(theta)*cos(rho)],
                      [-sin(theta), cos(theta)*sin(rho), cos(theta)*cos(psi)]])
 
-rospy.init_node('inverse_kinematics', anonymous=True)
+rospy.init_node('ik')
 twist_sub = rospy.Subscriber('/stewart/platform_twist', Twist, twist_callback)
 piston_pub = rospy.Publisher('/stewart/piston_cmd', Float32MultiArray, queue_size=10)
 piston_lengths = Float32MultiArray()

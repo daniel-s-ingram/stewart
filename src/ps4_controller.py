@@ -22,7 +22,7 @@ def joy_callback(msg):
 
 	twist_pub.publish(platform_twist)
 
-rospy.init_node('ps4_controller', anonymous=True)
+rospy.init_node('ps4_controller')
 joy_sub = rospy.Subscriber('/joy', Joy, joy_callback)
 twist_pub = rospy.Publisher('stewart/platform_twist', Twist, queue_size=10)
 rospy.spin()
