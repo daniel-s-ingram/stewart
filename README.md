@@ -1,4 +1,4 @@
-![](https://github.com/daniel-s-ingram/stewart/gif/stewart.gif)
+![](https://github.com/daniel-s-ingram/stewart/blob/master/gif/stewart.gif)
 
 Because the Stewart platform is a closed loop manipulator, the description was written in SDF rather than URDF. However, ROS does not support SDF by default, so a plugin was written to make the joints in Gazebo visible to ROS.
 
