@@ -9,3 +9,6 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 
 include_directories(${catkin_INCLUDE_DIRS})
+
+add_executable(ps4_controller src/ps4_controller.cpp)
+target_link_libraries(ps4_controller ${catkin_LIBRARIES})

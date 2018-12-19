@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <env name="GAZEBO_PLUGIN_PATH" value="${GAZEBO_PLUGIN_PATH}:$(find stewart)/plugin/build" />
   <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find stewart)/sdf" />
@@ -26,6 +27,7 @@
   </node>
 
   <node pkg="stewart" type="inverse_kinematics.py" name="inverse_kinematics" output="screen"> </node>
-  <node pkg="stewart" type="ps4_controller.py" name="ps4_controller" output="screen"> </node>
+  <node pkg="stewart" type="ps4_controller" name="ps4_controller" output="screen"> </node>
+  <!--node pkg="stewart" type="test.py" name="test" output="screen"> </node-->
 
 </launch>
