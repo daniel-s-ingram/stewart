@@ -26,8 +26,7 @@
     <param name="autorepeat_rate" value="100.0" />
   </node>
 
-  <node pkg="stewart" type="inverse_kinematics.py" name="inverse_kinematics" output="screen"> </node>
+  <node pkg="stewart" type="ik" name="ik" output="screen"> </node>
   <node pkg="stewart" type="ps4_controller" name="ps4_controller" output="screen"> </node>
-  <!--node pkg="stewart" type="test.py" name="test" output="screen"> </node-->
 
 </launch>

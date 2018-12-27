@@ -12,9 +12,9 @@ class Controller
     {
         ros::init(argc, argv, "ps4_controller");
         ros::NodeHandle nh;
-        this->pub = nh.advertise<geometry_msgs::Twist>("/stewart/platform_twist", 100);
+        pub = nh.advertise<geometry_msgs::Twist>("/stewart/platform_twist", 100);
         ros::Subscriber sub = nh.subscribe("/joy", 100, &Controller::callback, this);
-        this->main();
+        main();
     }
 
     private: void main(void)
@@ -24,27 +24,27 @@ class Controller
 
     private: void callback(const sensor_msgs::Joy::ConstPtr& msg)
     {
-        this->twist_msg.linear.x = -msg->axes[0];
-        this->twist_msg.linear.y = msg->axes[1];
-        this->twist_msg.angular.x = -msg->axes[4];
-        this->twist_msg.angular.y = -msg->axes[3];
-        if (msg->buttons[7] && this->twist_msg.linear.z < 1)
+        twist_msg.linear.x = -msg->axes[0];
+        twist_msg.linear.y = msg->axes[1];
+        twist_msg.angular.x = -msg->axes[4];
+        twist_msg.angular.y = -msg->axes[3];
+        if (msg->buttons[7] && twist_msg.linear.z < 1)
         {
-            this->twist_msg.linear.z += 0.01;
+            twist_msg.linear.z += 0.01;
         }
-        else if (msg->buttons[6] && this->twist_msg.linear.z > 0)
+        else if (msg->buttons[6] && twist_msg.linear.z > 0)
         {
-            this->twist_msg.linear.z -= 0.01;
+            twist_msg.linear.z -= 0.01;
         }
-        if (msg->buttons[5] && this->twist_msg.angular.z < M_PI/2.0)
+        if (msg->buttons[5] && twist_msg.angular.z < M_PI/2.0)
         {
-            this->twist_msg.angular.z += 0.01;
+            twist_msg.angular.z += 0.01;
         }
-        else if (msg->buttons[4] && this->twist_msg.angular.z > -M_PI/2.0)
+        else if (msg->buttons[4] && twist_msg.angular.z > -M_PI/2.0)
         {
-            this->twist_msg.angular.z -= 0.01;
+            twist_msg.angular.z -= 0.01;
         }
-        this->pub.publish(this->twist_msg);
+        pub.publish(twist_msg);
     }
 
 };
