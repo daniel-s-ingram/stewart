@@ -14,6 +14,11 @@ class Controller
         ros::NodeHandle nh;
         this->pub = nh.advertise<geometry_msgs::Twist>("/stewart/platform_twist", 100);
         ros::Subscriber sub = nh.subscribe("/joy", 100, &Controller::callback, this);
+        this->main();
+    }
+
+    private: void main(void)
+    {
         ros::spin();
     }
 
